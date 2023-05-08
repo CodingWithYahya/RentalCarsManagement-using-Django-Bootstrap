@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  {% for car in cars %}
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <img src="{{ car.image_url }}" class="card-img-top" alt="{{ car.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ car.name }}</h5>
+          <p class="card-text">{{ car.fuel_type }}</p>
+          <p class="card-text">{{ car.price }} Dhs</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}

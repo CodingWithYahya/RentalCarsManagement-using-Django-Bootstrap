@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} ALL CARS {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+{% csrf_token %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <div class="row">
+                            {% for car in cars %}
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card">
+                                    <img src="{{ car.image_url }}" class="card-img-top" alt="{{ car.name }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ car.name }}</h5>
+                                        <p class="card-text">{{ car.fuel_type }}</p>
+                                        <p class="card-text">{{ car.price }} Dhs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
